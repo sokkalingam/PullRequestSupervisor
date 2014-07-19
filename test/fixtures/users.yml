@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  last_commented: 2014-07-07 00:14:50
+  last_merged: 2014-07-07 00:14:50
+
+two:
+  name: MyString
+  last_commented: 2014-07-07 00:14:50
+  last_merged: 2014-07-07 00:14:50

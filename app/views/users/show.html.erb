@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Last commented:</strong>
+  <%= time_ago_in_words @user.last_commented %>
+</p>
+
+<p>
+  <strong>Last merged:</strong>
+  <%= time_ago_in_words @user.last_merged %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

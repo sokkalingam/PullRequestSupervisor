@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @pull_request.url %>
+</p>
+
+<%= link_to 'Edit', edit_pull_request_path(@pull_request) %> |
+<%= link_to 'Back', pull_requests_path %>

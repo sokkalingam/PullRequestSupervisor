@@ -1,0 +1,47 @@
+<h1>User Activity</h1>
+
+<%= @text %>
+<table class="hoverTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last commented</th>
+      <th>Last merged</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, 'https://github.paypal.com/' + user.name %></td>
+        <td style="<%= get_color(user.last_commented)%>"><%= time_ago_in_words user.last_commented %> ago</td>
+        <td style="<%= get_color(user.last_merged)%>"><%= time_ago_in_words user.last_merged %> ago</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Open Pull Requests</h1>
+
+<table class="hoverTable">
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Opened at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pull_requests.each do |pull_request| %>
+      <tr>
+        <td><a href=<%= pull_request.html_url %> target="_blank"><%= pull_request.html_url %></a></td>
+        <td style="<%= get_color(pull_request.opened_at)%>"><%= time_ago_in_words pull_request.opened_at %> ago</td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

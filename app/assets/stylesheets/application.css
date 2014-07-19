@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ h1{
+ 	font-family:sans-serif;
+	font-size: 30px;
+	font-weight: normal;
+ }
+
+.hoverTable{
+		width:100%; 
+		border-collapse:collapse;
+		font-family:sans-serif;
+		font-size: 20px;
+	}
+	.hoverTable th{
+		padding:10px; border:black 2px solid;
+		font-weight: normal;
+		font-size: 23px;
+
+	}
+	.hoverTable td{ 
+		padding:10px; border:black 2px solid;
+		font-size: 16px;
+	}
+	.hoverTable thead tr{
+		background: #ffffff;
+	}
+	/* Define the default color for all the table rows */
+	.hoverTable tbody tr{
+		background: #ffffff;
+	}
+	/* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+          background-color: #b8d1f3;
+    }
+
+    /*.hoverTable a{
+    	color: blue;
+    }*/
+    .hoverTable a:hover{
+    	color: red;
+    	background-color: #b8d1f3;
+    }
