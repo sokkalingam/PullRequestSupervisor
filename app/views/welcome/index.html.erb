@@ -14,8 +14,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.name, 'https://github.paypal.com/' + user.name %></td>
-        <td style="<%= get_color(user.last_commented)%>"><%= time_ago_in_words user.last_commented %> ago</td>
-        <td style="<%= get_color(user.last_merged)%>"><%= time_ago_in_words user.last_merged %> ago</td>
+        <td style="<%= get_color(user.last_commented) %>"><%= time_ago_in_words user.last_commented %> ago</td>
+        <td style="<%= get_color(user.last_merged) %>"><%= time_ago_in_words user.last_merged %> ago</td>
       </tr>
     <% end %>
   </tbody>
@@ -37,7 +37,7 @@
     <% @pull_requests.each do |pull_request| %>
       <tr>
         <td><a href=<%= pull_request.html_url %> target="_blank"><%= pull_request.html_url %></a></td>
-        <td style="<%= get_color(pull_request.opened_at)%>"><%= time_ago_in_words pull_request.opened_at %> ago</td>
+        <td style="<%= get_color(pull_request.opened_at) %>"><%= time_ago_in_words pull_request.opened_at %> ago</td>
         </td>
       </tr>
     <% end %>
