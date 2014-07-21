@@ -20,10 +20,9 @@ class User < ActiveRecord::Base
       user_events.each { |event|
           if event['type'] == "IssueCommentEvent" || event['type'] == "PullRequestReviewCommentEvent"
             time = Time.parse(event['created_at'])
-            if time > user.last_commented
-              user.last_commented = time
-              user.save
-            end
+            user.last_commented = time if user.last_commented == nil
+            user.last_commented = time if time > user.last_commented
+            user.save
           end
       }
     end
@@ -34,10 +33,9 @@ class User < ActiveRecord::Base
             if event['payload']['pull_request']['merged'] == true
               if event['payload']['pull_request']['merged_by']['login'] == user.name
                 time = Time.parse(event['created_at'])
-                if time > user.last_merged
-                  user.last_merged = time
-                  user.save
-                end
+                user.last_merged = time if user.last_merged == nil
+                user.last_merged = time if time > user.last_merged
+                user.save
               end
             end
           end
