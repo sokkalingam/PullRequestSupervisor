@@ -14,8 +14,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.name, 'https://github.paypal.com/' + user.name %></td>
-        <td><%= time_ago_in_words user.last_commented %></td>
-        <td><%= time_ago_in_words user.last_merged %></td>
+        <td><%= time_ago_in_words user.last_commented unless user.last_commented == nil %></td>
+        <td><%= time_ago_in_words user.last_merged unless user.last_merged == nil %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
