@@ -15,7 +15,7 @@ class PullRequest < ActiveRecord::Base
       response = HTTParty.get(pr.url)
       pull_request = JSON.parse(response.body)
       if pull_request['state'] != 'open'
-        pr.destoy
+        pr.destroy
         pr.save
       end
     }
