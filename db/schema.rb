@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140718205601) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "pull_requests", force: true do |t|
     t.string   "url"
     t.datetime "created_at"
