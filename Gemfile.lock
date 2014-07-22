@@ -147,6 +147,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json (~> 1.8.1)
+  mail
   mysql2
   rails (= 4.1.1)
   rails_12factor

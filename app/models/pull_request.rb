@@ -44,4 +44,17 @@ class PullRequest < ActiveRecord::Base
     }
 
   end
+
+  def pull_request_mailer
+    pull_requests = PullRequest.all
+    send_email = false
+    pull_requests.each do |pr|
+      send_email = true if(Time.now - pr.opened_at > 6.hours)
+    end
+
+    if send_email == true
+      PullRequestMailer.review_pull_request_email(pull_requests).deliver
+      puts "PullRequestMailer Email Sent"
+    end
+  end
 end

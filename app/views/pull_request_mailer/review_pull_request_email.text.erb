@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Here are some open pull requests that may require an expert like you to review</h3>
+    <ul>
+      <% @pull_requests.each do |pull_request| %>
+        <% if (Time.now - pull_request.opened_at > 6.hours) %>
+        <li><a href="<%= pull_request.url %>"><%= pull_request.url %></a> - opened <%= time_ago_in_words(pull_request.opened_at) + " ago"%></li>
+        <% end %>
+      <% end %>
+    </ul>
+    <p>With Love</br>
+    <a href="http://prmonitor.vip.lvs01.dev.ebayc3.com/">Pull Request Monitor</a></p>
+  </body>
+</html>
