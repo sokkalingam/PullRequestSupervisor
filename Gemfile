@@ -6,8 +6,8 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-#Changing Sqlite to pg
-gem 'pg'
+# mysql2
+gem 'mysql2', '~> 0.3.16'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -53,5 +53,4 @@ gem 'rails_12factor', group: :production
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-ruby "2.1.1"
 

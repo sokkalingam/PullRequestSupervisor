@@ -9,16 +9,13 @@
 #   pool: 5
 #   timeout: 5000
 
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
-
 development:
-  <<: *default
-  database: PR_MONITOR_DEV
+  adapter: mysql2
+  database: pr_monitor_dev
+  username: root
+  password:
+  host: localhost
+  socket: /tmp/mysql.sock
 
 # # Warning: The database defined as "test" will be erased and
 # # re-generated from your development database when you run "rake".
