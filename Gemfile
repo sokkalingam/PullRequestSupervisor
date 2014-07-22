@@ -42,6 +42,9 @@ gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 # Heroku
 gem 'rails_12factor', group: :production
 
+# thin
+gem 'thin', '~> 1.6.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
