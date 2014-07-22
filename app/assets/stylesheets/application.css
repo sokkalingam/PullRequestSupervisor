@@ -14,23 +14,35 @@
  *= require_self
  */
 
+body a:visited {
+  color: black;
+}
+
+.title{
+  width: 100%;
+  background: #FFDB4D;
+  padding: 0.1%;
+  padding-left: 10px;
+}
+
  h1{
  	font-family:sans-serif;
 	font-size: 30px;
-	font-weight: normal;
- }
+	font-weight: normal; 
+}
 
 .hoverTable{
 		width:100%; 
 		border-collapse:collapse;
 		font-family:sans-serif;
 		font-size: 20px;
+    color: black;
 	}
 	.hoverTable th{
 		padding:10px; border:black 2px solid;
 		font-weight: normal;
 		font-size: 23px;
-
+    background: #b8d1f3;
 	}
 	.hoverTable td{ 
 		padding:10px; border:black 2px solid;
@@ -41,7 +53,7 @@
 	}
 	/* Define the default color for all the table rows */
 	.hoverTable tbody tr{
-		background: #ffffff;
+		background: white;
 	}
 	/* Define the hover highlight color for the table row */
     .hoverTable tr:hover {
