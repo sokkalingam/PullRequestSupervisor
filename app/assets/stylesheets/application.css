@@ -20,9 +20,10 @@ body a:visited {
 
 .title{
   width: 100%;
-  background: #FFDB4D;
-  padding: 0.1%;
+  background: #0079c1;
+  padding: 0.01%;
   padding-left: 10px;
+  color: white;
 }
 
  h1{
