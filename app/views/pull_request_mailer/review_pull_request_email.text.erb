@@ -7,9 +7,7 @@
     <h3>Pull Requests that may need your expert opinion</h3>
     <ul>
       <% @pull_requests.each do |pull_request| %>
-        <% if (Time.now - pull_request.opened_at > 6.hours) %>
         <li><a href="<%= pull_request.html_url %>"><%= pull_request.html_url %></a> - opened <%= time_ago_in_words(pull_request.opened_at) + " ago"%></li>
-        <% end %>
       <% end %>
     </ul>
     <p>With Love</br>
