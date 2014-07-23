@@ -37,7 +37,9 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.delivery_method = :sendmail
+ config.action_mailer.delivery_method = :smtp
+  # this is configured to use the mailcatcher gem: http://mailcatcher.me/
+  config.action_mailer.smtp_settings = { :address => "atom.corp.ebay.com"}
   # Defaults to:
   # config.action_mailer.sendmail_settings = {
   #   :location => '/usr/sbin/sendmail',
