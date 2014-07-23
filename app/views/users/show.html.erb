@@ -7,12 +7,12 @@
 
 <p>
   <strong>Last commented:</strong>
-  <%= time_ago_in_words @user.last_commented %>
+  <%= @user.last_commented %>
 </p>
 
 <p>
   <strong>Last merged:</strong>
-  <%= time_ago_in_words @user.last_merged %>
+  <%= @user.last_merged %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
