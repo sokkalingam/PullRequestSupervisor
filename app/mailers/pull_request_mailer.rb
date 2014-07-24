@@ -1,5 +1,5 @@
 class PullRequestMailer < ActionMailer::Base
-  default from: "supervisor@prmonitor.com"
+  default from: "do-not-reply@paypal.com"
 
   def review_pull_request_email(pull_requests)
     @pull_requests = pull_requests
