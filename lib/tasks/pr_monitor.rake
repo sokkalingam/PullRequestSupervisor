@@ -11,12 +11,19 @@ namespace :pr do
   task :email => :environment do
     puts "Mailer has started"
     while (true) do
-      time_now = Time.now.in_time_zone("Eastern Time (US & Canada)").to_s
-      if time_now.include?("10:00:00") || time_now.include?("13:00:00") || time_now.include?("16:00:00")
-        PullRequest.new.pull_request_mailer
-        puts "Email sent at : " + time_now
-        sleep(10)
-      end
+      mailer("10:00:00", 3)
+      mailer("13:00:00", 3)
+      mailer("16:00:00", 18)
+    end
+  end
+
+  def mailer(time_to_send, sleep_for)
+    time_now = Time.now.in_time_zone("Eastern Time (US & Canada)").to_s
+    if time_now.include?(time_to_send)
+      PullRequest.new.pull_request_mailer
+      puts "Email sent at : " + time_now
+      puts "Sleeping for #{sleep_for} hours"
+      sleep(sleep_for.hours - 3.seconds)
     end
   end
 
