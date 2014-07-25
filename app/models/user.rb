@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
             url = event['payload']['issue']['url'] if event['type'] == "IssueCommentEvent"
             url = event['payload']['comment']['pull_request_url'] if event['type'] == "PullRequestReviewCommentEvent"
             response = JSON.parse(HTTParty.get(url).body)
-            if response['state'] == "open" && response['user']['login'] != user.name
+            if response['user']['login'] != user.name
               time = Time.parse(event['created_at'])
               user.last_commented = time if user.last_commented == nil
               user.last_commented = time if time > user.last_commented
