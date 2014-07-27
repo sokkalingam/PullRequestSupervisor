@@ -17,7 +17,8 @@ namespace :setup do
     end
 
     users = ["koanthony", "kugajjar", "maduraisamy",
-              "nikulkarni", "rchettri", "sosubramanian", "vsuryawanshi"]
+              "nikulkarni", "rchettri", "sosubramanian", "vsuryawanshi",
+              "gcabana", "jgeist", "jparalkar"]
 
     users.each do |user|
       User.create(:name => user) unless User.where(:name => user).exists?

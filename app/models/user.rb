@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
               user.last_commented = time if user.last_commented == nil
               user.last_commented = time if time > user.last_commented
               user.save
+              break
             end
           end   
       }
@@ -42,6 +43,7 @@ class User < ActiveRecord::Base
                 user.last_merged = time if user.last_merged == nil
                 user.last_merged = time if time > user.last_merged
                 user.save
+                break
               end
             end
           end
