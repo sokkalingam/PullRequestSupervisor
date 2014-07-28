@@ -36,7 +36,8 @@ class PullRequest < ActiveRecord::Base
           unless pull_request_urls.include? pr['url']
             PullRequest.create( :url => pr['url'],
                                 :html_url => pr['html_url'],
-                                :opened_at => pr['created_at'])
+                                :opened_at => pr['created_at'],
+                                :name => pr['user']['login'])
           end
         end
       }
