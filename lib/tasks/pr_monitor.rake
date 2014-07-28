@@ -18,10 +18,12 @@ namespace :pr do
   end
 
   def mailer(time_to_send, sleep_for)
-    time_now = Time.now.in_time_zone("Eastern Time (US & Canada)").to_s
-    if time_now.include?(time_to_send)
-      PullRequest.new.pull_request_mailer
-      puts "Email sent at : " + time_now
+    time_now = Time.now.in_time_zone("Eastern Time (US & Canada)")
+    if time_now.to_s.include?(time_to_send)
+      if !(time_now.saturday? || time_now.sunday?)
+        PullRequest.new.pull_request_mailer
+        puts "Email sent at : " + time_now.to_s
+      end
       puts "Sleeping for #{sleep_for} hours"
       sleep(sleep_for.hours - 3.seconds)
     end
