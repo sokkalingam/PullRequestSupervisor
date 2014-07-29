@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
                 time = Time.parse(event['created_at'])
                 user.last_merged = time if user.last_merged == nil
                 user.last_merged = time if time > user.last_merged
+                user.last_commented = user.last_merged if (user.last_commented == nil || user.last_merged > user.last_commented)
                 user.save
                 break
               end
