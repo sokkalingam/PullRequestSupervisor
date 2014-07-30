@@ -7,9 +7,15 @@
     <h3>Pull Requests that may need your expert opinion</h3>
     <ul>
       <% @pull_requests.each do |pull_request| %>
-        <li><a href="<%= pull_request.html_url %>"><%= pull_request.html_url %></a> - opened <%= time_ago_in_words(pull_request.opened_at) + " ago"%></li>
+        <li><%= link_to(pull_request.html_url, pull_request.html_url)%><%= " - opened " + time_ago_in_words(pull_request.opened_at) + " ago"%></li>
       <% end %>
     </ul>
+    <h3>Leader Board</h3>
+      <ul>
+        <% @users.each do |user| %>
+          <li><%= link_to user.name, 'https://github.paypal.com/' + user.name %></li>
+        <% end %>  
+      </ul>
     <p>With Love</br>
     <a href="http://prmonitor.vip.lvs01.dev.ebayc3.com/">Pull Request Monitor</a></p>
   </body>

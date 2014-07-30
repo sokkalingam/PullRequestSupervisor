@@ -45,12 +45,4 @@ class PullRequest < ActiveRecord::Base
     }
 
   end
-
-  def pull_request_mailer
-    pull_requests = PullRequest.all
-    if pull_requests.length > 0
-      PullRequestMailer.review_pull_request_email(pull_requests).deliver
-      puts "PullRequestMailer Email Sent"
-    end
-  end
 end

@@ -21,7 +21,7 @@ namespace :pr do
     time_now = Time.now.in_time_zone("Eastern Time (US & Canada)")
     if time_now.to_s.include?(time_to_send)
       if !(time_now.saturday? || time_now.sunday?)
-        PullRequest.new.pull_request_mailer
+        PullRequestMailer.review_pull_request_email
         puts "Email sent at : " + time_now.to_s
       end
       puts "Sleeping for #{sleep_for} hours"
