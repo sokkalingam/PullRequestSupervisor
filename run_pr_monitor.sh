@@ -1,6 +1,5 @@
 #!/bin/bash
-
-cd PullRequestSupervisor
+cd /home/deploy/PullRequestSupervisor
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-rake pr:monitor
+rake pr:monitor > pr_monitor.log
