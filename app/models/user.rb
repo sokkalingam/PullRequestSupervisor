@@ -18,11 +18,14 @@ class User < ActiveRecord::Base
 
     def update_last_commented(user, user_events)
       user_events.each { |event|
-          if event['type'] == "IssueCommentEvent" || event['type'] == "PullRequestReviewCommentEvent"
-            url = String.new
-            url = event['payload']['issue']['url'] if event['type'] == "IssueCommentEvent"
-            url = event['payload']['comment']['pull_request_url'] if event['type'] == "PullRequestReviewCommentEvent"
-            response = JSON.parse(HTTParty.get(url).body)
+        if event['type'] == "IssueCommentEvent" || event['type'] == "PullRequestReviewCommentEvent"
+          url = String.new
+          url = event['payload']['issue']['url'] if event['type'] == "IssueCommentEvent"
+          url = event['payload']['comment']['pull_request_url'] if event['type'] == "PullRequestReviewCommentEvent"
+          puts url
+          response = HTTParty.get(url)
+          if response.code == 200
+            response = JSON.parse(response.body)
             if response['user']['login'] != user.name
               time = Time.parse(event['created_at'])
               user.last_commented = time if user.last_commented == nil
@@ -30,7 +33,8 @@ class User < ActiveRecord::Base
               user.save
               break
             end
-          end   
+          end
+        end
       }
     end
 
