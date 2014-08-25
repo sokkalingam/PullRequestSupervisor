@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
           url = String.new
           url = event['payload']['issue']['url'] if event['type'] == "IssueCommentEvent"
           url = event['payload']['comment']['pull_request_url'] if event['type'] == "PullRequestReviewCommentEvent"
-          puts url
           response = HTTParty.get(url)
           if response.code == 200
             response = JSON.parse(response.body)
