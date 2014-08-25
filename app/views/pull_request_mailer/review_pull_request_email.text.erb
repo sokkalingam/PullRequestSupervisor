@@ -7,7 +7,12 @@
     <h3>Pull Requests that may need your expert opinion</h3>
     <ul>
       <% @pull_requests.each do |pull_request| %>
-        <li><%= link_to(pull_request.html_url, pull_request.html_url)%><%= " - opened " + time_ago_in_words(pull_request.opened_at) + " ago"%></li>
+        <li>
+            <%= link_to(pull_request.name, 'https://github.paypal.com/' + pull_request.name) + 
+                " opened this " + link_to("Pull Request", pull_request.html_url) + " " + 
+                time_ago_in_words(pull_request.opened_at) + " ago"
+            %>
+        </li>
       <% end %>
     </ul>
     <h3>Leader Board</h3>
