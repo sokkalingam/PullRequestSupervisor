@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728212016) do
+ActiveRecord::Schema.define(version: 20140827201747) do
 
   create_table "pull_requests", force: true do |t|
     t.string   "url"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140728212016) do
     t.datetime "last_merged"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "display_name"
   end
 
 end
