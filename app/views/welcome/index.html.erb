@@ -12,12 +12,8 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <%
-          display_name = user.display_name
-          display_name = user.name if display_name.blank?
-      %>
       <tr>
-        <td><%= link_to display_name, 'https://github.paypal.com/' + user.name, :target => "_blank" %></td>
+        <td><%= link_to user.display_name, 'https://github.paypal.com/' + user.name, :target => "_blank" %></td>
         <td style="<%= get_color(user.last_commented) %>"><%= time_ago_in_words(user.last_commented) + " ago" unless user.last_commented == nil %></td>
         <td style="<%= get_color(user.last_merged) %>"><%= time_ago_in_words(user.last_merged) + " ago" unless user.last_merged == nil %></td>
       </tr>
@@ -41,7 +37,7 @@
   <tbody>
     <% @pull_requests.each do |pull_request| %>
       <tr>
-        <td><%= link_to pull_request.name, 'https://github.paypal.com/' + pull_request.name, :target => "_blank" %></td>
+        <td><%= link_to pull_request.display_name, 'https://github.paypal.com/' + pull_request.name, :target => "_blank" %></td>
         <td><a href=<%= pull_request.html_url %> target="_blank"><%= pull_request.html_url %></a></td>
         <td style="<%= get_color(pull_request.opened_at) %>"><%= time_ago_in_words(pull_request.opened_at) + " ago" %></td>
         </td>

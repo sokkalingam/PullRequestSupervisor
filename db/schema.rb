@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827201747) do
+ActiveRecord::Schema.define(version: 20140827210554) do
 
   create_table "pull_requests", force: true do |t|
     t.string   "url"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140827201747) do
     t.datetime "opened_at"
     t.string   "html_url"
     t.string   "name"
+    t.string   "display_name"
   end
 
   create_table "repos", force: true do |t|

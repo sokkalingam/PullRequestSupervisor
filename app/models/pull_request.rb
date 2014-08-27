@@ -44,5 +44,16 @@ class PullRequest < ActiveRecord::Base
 
     }
 
+    pull_requests = PullRequest.all
+
+    pull_requests.each do |pr|
+      users.each do |user|
+        if pr.name == user.name
+          pr.display_name = user.display_name
+          pr.save
+        end
+      end
+    end
+
   end
 end

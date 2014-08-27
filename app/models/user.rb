@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
         if response.code == 200
           user_profile = JSON.parse(HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}").body)
           user.display_name = user_profile['name']
+          user.display_name = user.name if user.display_name.blank?
           user_events = JSON.parse(response.body)
           update_last_commented(user, user_events)
           update_last_merged(user, user_events)

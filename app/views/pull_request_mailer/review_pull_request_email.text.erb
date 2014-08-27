@@ -8,7 +8,7 @@
     <ul>
       <% @pull_requests.each do |pull_request| %>
         <li>
-            <%= link_to(pull_request.name, 'https://github.paypal.com/' + pull_request.name) + 
+            <%= link_to(pull_request.display_name, 'https://github.paypal.com/' + pull_request.name) + 
                 " opened this " + link_to("Pull Request", pull_request.html_url) + " " + 
                 time_ago_in_words(pull_request.opened_at) + " ago"
             %>
@@ -18,7 +18,7 @@
     <h3>Leader Board</h3>
       <ul>
         <% @users.each do |user| %>
-          <li><%= link_to user.name, 'https://github.paypal.com/' + user.name %></li>
+          <li><%= link_to user.display_name, 'https://github.paypal.com/' + user.name %></li>
         <% end %>  
       </ul>
     <p>With Love</br>
