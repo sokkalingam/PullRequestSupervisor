@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
       # get user events
       users.each{ |user|
-        response = HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}/events")
+        response = HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}/events?access_token=792710e6ec06a36b9b7b593d2a5cb2912e44bb14")
         if response.code == 200
           user_profile = JSON.parse(HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}").body)
           user.display_name = user_profile['name']
