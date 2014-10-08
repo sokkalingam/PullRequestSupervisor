@@ -1,6 +1,8 @@
 class PullRequest < ActiveRecord::Base
   include HTTParty
   
+  @@access_token = "?access_token=792710e6ec06a36b9b7b593d2a5cb2912e44bb14"
+
   def get_open_pull_requests
     repos = Repo.all
     users = User.all
@@ -29,8 +31,7 @@ class PullRequest < ActiveRecord::Base
 
 
     repos.each{ |repo|
-      puts "REPO: #{repo.url}"
-      response = HTTParty.get(repo.url + '/pulls?access_token=792710e6ec06a36b9b7b593d2a5cb2912e44bb14')
+      response = HTTParty.get(repo.url + "/pulls#{@@access_token}")
       pulls = JSON.parse(response.body)
       pulls.each { |pr| 
         if user_names.include? pr['user']['login']

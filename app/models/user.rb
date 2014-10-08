@@ -1,15 +1,17 @@
 class User < ActiveRecord::Base
 	include HTTParty
-    
+
+    @@access_token = "?access_token=792710e6ec06a36b9b7b593d2a5cb2912e44bb14"
+
     def get_user_stats
       # get all users
       users = User.all
 
       # get user events
       users.each{ |user|
-        response = HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}/events?access_token=792710e6ec06a36b9b7b593d2a5cb2912e44bb14")
+        response = HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}/events#{@@access_token}")
         if response.code == 200
-          user_profile = JSON.parse(HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}").body)
+          user_profile = JSON.parse(HTTParty.get("https://github.paypal.com/api/v3/users/#{user.name}#{@@access_token}").body)
           user.display_name = user_profile['name']
           user.display_name = user.name if user.display_name.blank?
           user_events = JSON.parse(response.body)
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
           url = String.new
           url = event['payload']['issue']['url'] if event['type'] == "IssueCommentEvent"
           url = event['payload']['comment']['pull_request_url'] if event['type'] == "PullRequestReviewCommentEvent"
-          response = HTTParty.get(url)
+          response = HTTParty.get(url + @@access_token)
           if response.code == 200
             response = JSON.parse(response.body)
             if response['user']['login'] != user.name
