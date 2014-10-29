@@ -8,50 +8,35 @@ class PullRequest < ActiveRecord::Base
     users = User.all
     pull_requests = PullRequest.all
 
-    user_names = []
-    users.each{ |user|
-      user_names << user.name
-    }
-
-    pull_requests.each{ |pr|
-      response = HTTParty.get(pr.url)
-      pull_request = JSON.parse(response.body)
-      if pull_request['state'] != 'open'
-        pr.destroy
-        pr.save
-      end
-    }
-
-    pull_requests = PullRequest.all
     pull_request_urls = []
+    pull_requests.each do |pull_request|
+      pull_request_urls << pull_request.url
+    end
 
-    pull_requests.each { |pr|
-      pull_request_urls << pr.url
-    }
-
-
-    repos.each{ |repo|
+    repos.each do |repo|
       response = HTTParty.get(repo.url + "/pulls#{@@access_token}")
       pulls = JSON.parse(response.body)
-      pulls.each { |pr| 
-        if user_names.include? pr['user']['login']
-          unless pull_request_urls.include? pr['url']
-            PullRequest.create( :url => pr['url'],
-                                :html_url => pr['html_url'],
-                                :opened_at => pr['created_at'],
-                                :name => pr['user']['login'])
+      pulls.each do |pr|
+        users.each do |user|
+          if user.name == pr['user']['login'] && !(pull_request_urls.include? pr['url'])
+              PullRequest.create( :url => pr['url'],
+                                  :html_url => pr['html_url'],
+                                  :opened_at => pr['created_at'],
+                                  :name => user.name,
+                                  :display_name => user.display_name)
           end
         end
-      }
+      end
+    end
 
-    }
 
-    pull_requests = PullRequest.all
 
-    pull_requests.each do |pr|
-      users.each do |user|
-        if pr.name == user.name
-          pr.display_name = user.display_name
+
+    pull_requests.each do |pull_request|
+      respone = HTTParty.get(pull_request.url)
+      if respone.code == 200
+        if JSON.parse(respone.body)['state'] != 'open'
+          pr.destroy
           pr.save
         end
       end
