@@ -33,11 +33,11 @@ class PullRequest < ActiveRecord::Base
 
 
     pull_requests.each do |pull_request|
-      respone = HTTParty.get(pull_request.url)
+      respone = HTTParty.get(pull_request.url + @@access_token)
       if respone.code == 200
         if JSON.parse(respone.body)['state'] != 'open'
-          pr.destroy
-          pr.save
+          pull_request.destroy
+          pull_request.save
         end
       end
     end
