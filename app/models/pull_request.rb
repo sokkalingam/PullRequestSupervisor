@@ -15,15 +15,17 @@ class PullRequest < ActiveRecord::Base
 
     repos.each do |repo|
       response = HTTParty.get(repo.url + "/pulls#{@@access_token}")
-      pulls = JSON.parse(response.body)
-      pulls.each do |pr|
-        users.each do |user|
-          if user.name == pr['user']['login'] && !(pull_request_urls.include? pr['url'])
-              PullRequest.create( :url => pr['url'],
-                                  :html_url => pr['html_url'],
-                                  :opened_at => pr['created_at'],
-                                  :name => user.name,
-                                  :display_name => user.display_name)
+      if response.code == 200
+        pulls = JSON.parse(response.body)
+        pulls.each do |pr|
+          users.each do |user|
+            if user.name == pr['user']['login'] && !(pull_request_urls.include? pr['url'])
+                PullRequest.create( :url => pr['url'],
+                                    :html_url => pr['html_url'],
+                                    :opened_at => pr['created_at'],
+                                    :name => user.name,
+                                    :display_name => user.display_name)
+            end
           end
         end
       end
