@@ -10,22 +10,18 @@ namespace :pr do
 
   task :email => :environment do
     puts "Mailer has started"
-    while (true) do
-      mailer("10:00:00", 3)
-      mailer("13:00:00", 3)
-      mailer("16:00:00", 18)
-    end
+    mailer(10)
+    mailer(13)
+    mailer(16)
   end
 
-  def mailer(time_to_send, sleep_for)
+  def mailer(hr, min = 0)
     time_now = Time.now.in_time_zone("Eastern Time (US & Canada)")
-    if time_now.to_s.include?(time_to_send)
+    if time_now.hour == hr && time_now.min == min
       if !(time_now.saturday? || time_now.sunday?)
         PullRequestMailer.review_pull_request_email
         puts "Email sent at : " + time_now.to_s
       end
-      puts "Sleeping for #{sleep_for} hours"
-      sleep(sleep_for.hours - 3.seconds)
     end
   end
 
