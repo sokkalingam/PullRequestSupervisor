@@ -1,11 +1,15 @@
-namespace :pr do
+namespace :monitor do
 
-  task :monitor => :environment do
-    user = User.new
-    pull_request = PullRequest.new
-    user.get_user_stats
-    pull_request.get_open_pull_requests
-    puts "PR Monitor Last Updated at : " + Time.now.in_time_zone("Eastern Time (US & Canada)").to_s
+  task :user => :environment do
+    t = Time.now
+    User.new.get_user_stats
+    puts "PR Monitor User time taken : #{Time.now - t}"
+  end
+
+  task :pr => :environment do
+    t = Time.now
+    PullRequest.new.get_open_pull_requests
+    puts "PR Monitor PR time taken : #{Time.now - t}"
   end
 
   task :email => :environment do
