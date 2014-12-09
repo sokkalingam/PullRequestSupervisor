@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop_user.name %>
+</p>
+
+<p>
+  <strong>Last commented:</strong>
+  <%= @shop_user.last_commented %>
+</p>
+
+<p>
+  <strong>Last merged:</strong>
+  <%= @shop_user.last_merged %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @shop_user.display_name %>
+</p>
+
+<%= link_to 'Edit', edit_shop_user_path(@shop_user) %> |
+<%= link_to 'Back', shop_users_path %>

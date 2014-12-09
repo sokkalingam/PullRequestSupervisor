@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @shop_pull_request.url %>
+</p>
+
+<p>
+  <strong>Opened at:</strong>
+  <%= @shop_pull_request.opened_at %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @shop_pull_request.html_url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop_pull_request.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @shop_pull_request.display_name %>
+</p>
+
+<%= link_to 'Edit', edit_shop_pull_request_path(@shop_pull_request) %> |
+<%= link_to 'Back', shop_pull_requests_path %>

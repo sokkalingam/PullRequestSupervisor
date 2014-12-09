@@ -13,20 +13,8 @@ namespace :monitor do
   end
 
   task :email => :environment do
-    puts "Mailer has started"
-    mailer(10)
-    mailer(13)
-    mailer(16)
-  end
-
-  def mailer(hr, min = 0)
-    time_now = Time.now.in_time_zone("Eastern Time (US & Canada)")
-    if time_now.hour == hr && time_now.min == min
-      if !(time_now.saturday? || time_now.sunday?)
-        PullRequestMailer.review_pull_request_email
-        puts "Email sent at : " + time_now.to_s
-      end
-    end
+    puts "DemandGenQA Mailer has started"
+    PullRequestMailer.review_pull_request_email([10, 13, 16], PullRequest.all, User.all, 'DL-PP-CQES-DemandGen@ebay.com', 'DemandGenQA')
   end
 
 end

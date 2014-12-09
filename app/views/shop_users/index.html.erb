@@ -1,0 +1,31 @@
+<h1>Listing shop_users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last commented</th>
+      <th>Last merged</th>
+      <th>Display name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shop_users.each do |shop_user| %>
+      <tr>
+        <td><%= shop_user.name %></td>
+        <td><%= shop_user.last_commented %></td>
+        <td><%= shop_user.last_merged %></td>
+        <td><%= shop_user.display_name %></td>
+        <td><%= link_to 'Show', shop_user %></td>
+        <td><%= link_to 'Edit', edit_shop_user_path(shop_user) %></td>
+        <td><%= link_to 'Destroy', shop_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop user', new_shop_user_path %>

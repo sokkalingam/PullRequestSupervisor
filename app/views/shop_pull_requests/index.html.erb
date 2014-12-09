@@ -1,0 +1,33 @@
+<h1>Listing shop_pull_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Opened at</th>
+      <th>Html url</th>
+      <th>Name</th>
+      <th>Display name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shop_pull_requests.each do |shop_pull_request| %>
+      <tr>
+        <td><%= shop_pull_request.url %></td>
+        <td><%= shop_pull_request.opened_at %></td>
+        <td><%= shop_pull_request.html_url %></td>
+        <td><%= shop_pull_request.name %></td>
+        <td><%= shop_pull_request.display_name %></td>
+        <td><%= link_to 'Show', shop_pull_request %></td>
+        <td><%= link_to 'Edit', edit_shop_pull_request_path(shop_pull_request) %></td>
+        <td><%= link_to 'Destroy', shop_pull_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop pull request', new_shop_pull_request_path %>

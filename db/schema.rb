@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827210554) do
+ActiveRecord::Schema.define(version: 20141209200722) do
 
   create_table "pull_requests", force: true do |t|
     t.string   "url"
@@ -25,6 +25,31 @@ ActiveRecord::Schema.define(version: 20140827210554) do
 
   create_table "repos", force: true do |t|
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_pull_requests", force: true do |t|
+    t.string   "url"
+    t.datetime "opened_at"
+    t.string   "html_url"
+    t.string   "name"
+    t.string   "display_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_repos", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_users", force: true do |t|
+    t.string   "name"
+    t.datetime "last_commented"
+    t.datetime "last_merged"
+    t.string   "display_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

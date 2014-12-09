@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :shop_repos
+
+  resources :shop_pull_requests
+
+  resources :shop_users
+
   resources :repos
 
   resources :pull_requests
@@ -6,6 +12,8 @@ Rails.application.routes.draw do
   resources :users
 
   root 'welcome#index'
+  get '/demandgenqa', to: 'welcome#index'
+  get '/shop',        to: 'shop#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
