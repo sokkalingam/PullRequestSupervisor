@@ -14,7 +14,7 @@ namespace :s2w do
 
   task :email => :environment do
     puts "S2w Mailer has started"
-    PullRequestMailer.review_pull_request_email([10, 13, 23], S2wPullRequest.all, S2wUser.all, 'sosubramanian@paypal.com', 'S2w')
+    PullRequestMailer.review_pull_request_email([10, 13], S2wPullRequest.all, S2wUser.all, 'sosubramanian@paypal.com', 'S2w')
   end
 
 end

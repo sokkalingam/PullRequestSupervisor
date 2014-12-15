@@ -14,7 +14,7 @@ namespace :places do
 
   task :email => :environment do
     puts "Places Mailer has started"
-    PullRequestMailer.review_pull_request_email([10, 13, 23], PlacesPullRequest.all, PlacesUser.all, 'sosubramanian@paypal.com', 'Places')
+    PullRequestMailer.review_pull_request_email([10, 13], PlacesPullRequest.all, PlacesUser.all, 'sosubramanian@paypal.com', 'Places')
   end
 
 end
