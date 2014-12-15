@@ -14,7 +14,7 @@ namespace :shop do
 
   task :email => :environment do
     puts "Shop Mailer has started"
-    PullRequestMailer.review_pull_request_email([10, 13, 23], ShopPullRequest.all, ShopUser.all, 'sosubramanian@paypal.com', 'Shop')
+    PullRequestMailer.review_pull_request_email([10, 13], ShopPullRequest.all, ShopUser.all, 'DL-Where-Landing-Pages@corp.ebay.com', 'Shop')
   end
 
 end

@@ -14,7 +14,7 @@ namespace :monitor do
 
   task :email => :environment do
     puts "DemandGenQA Mailer has started"
-    PullRequestMailer.review_pull_request_email([10, 13, 16, 23], PullRequest.all, User.all, 'sosubramanian@paypal.com', 'DemandGenQA')
+    PullRequestMailer.review_pull_request_email([10, 13, 16], PullRequest.all, User.all, 'DL-PP-CQES-DemandGen@ebay.com', 'DemandGenQA')
   end
 
 end
