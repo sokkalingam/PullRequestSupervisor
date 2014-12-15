@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @smb_pull_request.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @smb_pull_request.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @smb_pull_request.display_name %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @smb_pull_request.html_url %>
+</p>
+
+<p>
+  <strong>Opened at:</strong>
+  <%= @smb_pull_request.opened_at %>
+</p>
+
+<%= link_to 'Edit', edit_smb_pull_request_path(@smb_pull_request) %> |
+<%= link_to 'Back', smb_pull_requests_path %>

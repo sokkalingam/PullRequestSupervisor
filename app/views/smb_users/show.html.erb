@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @smb_user.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @smb_user.display_name %>
+</p>
+
+<p>
+  <strong>Last commented:</strong>
+  <%= @smb_user.last_commented %>
+</p>
+
+<p>
+  <strong>Last merged:</strong>
+  <%= @smb_user.last_merged %>
+</p>
+
+<%= link_to 'Edit', edit_smb_user_path(@smb_user) %> |
+<%= link_to 'Back', smb_users_path %>

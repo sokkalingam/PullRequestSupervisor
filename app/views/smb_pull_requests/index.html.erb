@@ -1,0 +1,33 @@
+<h1>Listing smb_pull_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Name</th>
+      <th>Display name</th>
+      <th>Html url</th>
+      <th>Opened at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smb_pull_requests.each do |smb_pull_request| %>
+      <tr>
+        <td><%= smb_pull_request.url %></td>
+        <td><%= smb_pull_request.name %></td>
+        <td><%= smb_pull_request.display_name %></td>
+        <td><%= smb_pull_request.html_url %></td>
+        <td><%= smb_pull_request.opened_at %></td>
+        <td><%= link_to 'Show', smb_pull_request %></td>
+        <td><%= link_to 'Edit', edit_smb_pull_request_path(smb_pull_request) %></td>
+        <td><%= link_to 'Destroy', smb_pull_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smb pull request', new_smb_pull_request_path %>

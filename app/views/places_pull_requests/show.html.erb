@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @places_pull_request.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @places_pull_request.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @places_pull_request.display_name %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @places_pull_request.html_url %>
+</p>
+
+<p>
+  <strong>Opened at:</strong>
+  <%= @places_pull_request.opened_at %>
+</p>
+
+<%= link_to 'Edit', edit_places_pull_request_path(@places_pull_request) %> |
+<%= link_to 'Back', places_pull_requests_path %>

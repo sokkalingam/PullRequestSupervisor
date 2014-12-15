@@ -1,0 +1,31 @@
+<h1>Listing smb_users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Display name</th>
+      <th>Last commented</th>
+      <th>Last merged</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smb_users.each do |smb_user| %>
+      <tr>
+        <td><%= smb_user.name %></td>
+        <td><%= smb_user.display_name %></td>
+        <td><%= smb_user.last_commented %></td>
+        <td><%= smb_user.last_merged %></td>
+        <td><%= link_to 'Show', smb_user %></td>
+        <td><%= link_to 'Edit', edit_smb_user_path(smb_user) %></td>
+        <td><%= link_to 'Destroy', smb_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smb user', new_smb_user_path %>
