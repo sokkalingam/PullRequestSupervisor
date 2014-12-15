@@ -3,4 +3,4 @@
 cd /home/deploy/PullRequestSupervisor
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-rake shop:pr > shop_pr.log
+rake shop:pr > run_scripts/logs/shop_pr.log
