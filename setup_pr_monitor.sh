@@ -66,13 +66,13 @@ echo "$rake" > lib/tasks/${name}_monitor.rake
 
 ## Create shell scripts
 sed '$d' run_scripts/run_monitor_user.sh > run_scripts/run_${name}_user.sh
-echo "rake ${name}:user > ${name}_user.log" >> run_scripts/run_${name}_user.sh 
+echo "rake ${name}:user > run_scripts/logs/${name}_user.log" >> run_scripts/run_${name}_user.sh 
 
 sed '$d' run_scripts/run_monitor_pr.sh > run_scripts/run_${name}_pr.sh
-echo "rake ${name}:pr > ${name}_pr.log" >> run_scripts/run_${name}_pr.sh
+echo "rake ${name}:pr > run_scripts/logs/${name}_pr.log" >> run_scripts/run_${name}_pr.sh
 
 sed '$d' run_scripts/run_monitor_email.sh > run_scripts/run_${name}_email.sh
-echo "rake ${name}:email > ${name}_email.log" >> run_scripts/run_${name}_email.sh
+echo "rake ${name}:email > run_scripts/logs/${name}_email.log" >> run_scripts/run_${name}_email.sh
 
 ## Setup Routes
 sed '$d' config/routes.rb > config/temp.rb
