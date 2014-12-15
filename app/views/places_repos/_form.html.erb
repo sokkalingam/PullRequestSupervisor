@@ -1,0 +1,21 @@
+<%= form_for(@places_repo) do |f| %>
+  <% if @places_repo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@places_repo.errors.count, "error") %> prohibited this places_repo from being saved:</h2>
+
+      <ul>
+      <% @places_repo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

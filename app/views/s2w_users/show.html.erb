@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @s2w_user.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @s2w_user.display_name %>
+</p>
+
+<p>
+  <strong>Last commented:</strong>
+  <%= @s2w_user.last_commented %>
+</p>
+
+<p>
+  <strong>Last merged:</strong>
+  <%= @s2w_user.last_merged %>
+</p>
+
+<%= link_to 'Edit', edit_s2w_user_path(@s2w_user) %> |
+<%= link_to 'Back', s2w_users_path %>

@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  resources :places_repos
+
+  resources :places_pull_requests
+
+  resources :places_users
+
+  resources :s2w_repos
+
+  resources :s2w_pull_requests
+
+  resources :s2w_users
+
+  resources :smb_repos
+
+  resources :smb_pull_requests
+
+  resources :smb_users
+
   resources :shop_repos
 
   resources :shop_pull_requests
@@ -69,4 +87,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get '/smb',        to: 'smb#index'
+  get '/s2w',        to: 's2w#index'
+  get '/places',        to: 'places#index'
 end

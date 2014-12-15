@@ -1,0 +1,2 @@
+module PlacesPullRequestsHelper
+end

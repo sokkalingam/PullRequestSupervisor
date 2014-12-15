@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @s2w_pull_request.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @s2w_pull_request.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @s2w_pull_request.display_name %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @s2w_pull_request.html_url %>
+</p>
+
+<p>
+  <strong>Opened at:</strong>
+  <%= @s2w_pull_request.opened_at %>
+</p>
+
+<%= link_to 'Edit', edit_s2w_pull_request_path(@s2w_pull_request) %> |
+<%= link_to 'Back', s2w_pull_requests_path %>

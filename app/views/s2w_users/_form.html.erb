@@ -1,0 +1,33 @@
+<%= form_for(@s2w_user) do |f| %>
+  <% if @s2w_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@s2w_user.errors.count, "error") %> prohibited this s2w_user from being saved:</h2>
+
+      <ul>
+      <% @s2w_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :display_name %><br>
+    <%= f.text_field :display_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_commented %><br>
+    <%= f.datetime_select :last_commented %>
+  </div>
+  <div class="field">
+    <%= f.label :last_merged %><br>
+    <%= f.datetime_select :last_merged %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

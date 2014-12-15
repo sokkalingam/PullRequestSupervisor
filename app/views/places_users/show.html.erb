@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @places_user.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @places_user.display_name %>
+</p>
+
+<p>
+  <strong>Last commented:</strong>
+  <%= @places_user.last_commented %>
+</p>
+
+<p>
+  <strong>Last merged:</strong>
+  <%= @places_user.last_merged %>
+</p>
+
+<%= link_to 'Edit', edit_places_user_path(@places_user) %> |
+<%= link_to 'Back', places_users_path %>
