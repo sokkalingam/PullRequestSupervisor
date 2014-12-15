@@ -13,10 +13,10 @@ class PullRequestMailer < ActionMailer::Base
     time_now = Time.now.in_time_zone("Eastern Time (US & Canada)")
     if pull_requests.length > 0
       if hours.include?(time_now.hour) && time_now.min == 40
-        if !(time_now.saturday? || time_now.sunday?)
+        # if !(time_now.saturday? || time_now.sunday?)
           send_email(pull_requests, users, to, teamName).deliver
           puts "Email sent at : " + time_now.to_s
-        end
+        # end
       end
     end
   end
