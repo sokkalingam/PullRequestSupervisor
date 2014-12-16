@@ -15,7 +15,6 @@ module UsersHelper
           user_events = JSON.parse(response.body)
           update_last_commented(user, user_events)
           update_last_merged(user, user_events)
-          user.save
         end
       }
     end
@@ -31,9 +30,11 @@ module UsersHelper
             response = JSON.parse(response.body)
             if response['user']['login'] != user.name
               time = Time.parse(event['created_at'])
-              user.last_commented = time if user.last_commented == nil
-              user.last_commented = time if time > user.last_commented
-              break
+              if user.last_commented == nil || time > user.last_commented
+                user.last_commented = time
+                user.save
+                break
+              end
             end
           end
         end
@@ -46,10 +47,12 @@ module UsersHelper
             if event['payload']['pull_request']['merged'] == true
               if event['payload']['pull_request']['merged_by']['login'] == user.name
                 time = Time.parse(event['created_at'])
-                user.last_merged = time if user.last_merged == nil
-                user.last_merged = time if time > user.last_merged
-                user.last_commented = user.last_merged if (user.last_commented == nil || user.last_merged > user.last_commented)
-                break
+                if user.last_merged == nil || time > user.last_merged
+                  user.last_merged = time
+                  user.last_commented = user.last_merged if user.last_merged > user.last_commented
+                  user.save
+                  break
+                end
               end
             end
           end
