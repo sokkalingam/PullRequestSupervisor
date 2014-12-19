@@ -14,7 +14,7 @@ namespace :smb do
 
   task :email => :environment do
     puts "Smb Mailer has started"
-    PullRequestMailer.review_pull_request_email([10, 13], SmbPullRequest.all, SmbUser.all, 'sosubramanian@paypal.com', 'Smb')
+    PullRequestMailer.review_pull_request_email([10, 13], SmbPullRequest.all, SmbUser.all, 'DL-PayPal-DemGen-Apps-SelfServe@corp.ebay.com', 'Smb')
   end
 
 end
