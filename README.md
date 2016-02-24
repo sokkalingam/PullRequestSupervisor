@@ -9,6 +9,6 @@ PullRequestSupervisor
 
 - The app highlights a Pull Request in red which has been kept open for long and a user in red who has not participated in code review for a while.
 
-- Recently opened Pull Requests and members who has recently commented or merged a Pull Request will stay green in color.
+- Recently opened Pull Requests and members who have recently commented or merged a Pull Request will stay green in color.
 
 - This app encourages your team to be highly incolved in code review and merging of pull requests.
